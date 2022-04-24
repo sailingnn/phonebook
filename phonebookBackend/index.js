@@ -1,7 +1,14 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
+morgan.token('body', function(request, response){
+  return JSON.stringify(request.body);
+ });
+
+morgan.format('tinymore', ':method :url :status :res[content-length] - :response-time ms :body') 
 app.use(express.json())
+app.use(morgan('tinymore'))
 
 let persons = [
     { 
@@ -65,7 +72,7 @@ const generateId = () => {
 
 app.post('/api/persons', (request, response) => {
   const body = request.body
-  console.log('body:', body)
+  // console.log('body:', body)
   if (!body.number) {
     return response.status(400).json({ 
       error: 'number missing' 
@@ -98,6 +105,5 @@ app.post('/api/persons', (request, response) => {
 
 const PORT = 3001
 app.listen(PORT, () => {
-  console.log('length:', persons.length)
   console.log(`Server running on port ${PORT}`)
 })
