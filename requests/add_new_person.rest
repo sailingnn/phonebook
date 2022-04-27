@@ -6,5 +6,26 @@ content-type: application/json
 
 {
     "name": "Ada Lovelace",
-    "number": "39-44-532352333"
+    "number": "39-44-5323523399"
+}
+
+###
+GET http://localhost:3001/info/
+
+###
+POST http://localhost:3001/api/persons/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Sasa",
+    "number": ""
+}
+
+###
+PUT http://localhost:3001/api/persons/6268a94d6dc5f9eb7ba4f1f6 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Viva",
+    "number": "98-7523399"
 }
