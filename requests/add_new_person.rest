@@ -17,8 +17,8 @@ POST http://localhost:3001/api/persons/ HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Sasa",
-    "number": ""
+    "name": "Sasa3",
+    "number": "10-22-334455"
 }
 
 ###
